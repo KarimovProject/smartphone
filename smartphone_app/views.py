@@ -3,6 +3,7 @@ from multiprocessing import context
 from django.http import JsonResponse, HttpResponse
 from .models import Product
 from django.shortcuts import render
+from django.views import View
 
 # Define the function convert_to_json
 
@@ -45,6 +46,9 @@ def get_all_company(request):
         'title': 'Companies',
     }
     return render(request, 'home.html', context)
+class Homeview(View):
+    def get(self, request):
+        return HttpResponse(" <h4> Companylarni ko'rish uchun sayt linkiga </h4> <h1>/company</h1> <h4> deb qo'shing!! </h4>")
     
 def get_company_by_name(request, company):
     """
